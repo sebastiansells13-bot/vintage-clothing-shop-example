@@ -1,0 +1,202 @@
+media:
+  input: src/_includes/img
+  output: /img
+
+content:
+  - name: posts
+    label: Blog Posts
+    type: collection
+    path: src/posts
+    view:
+      fields: [title, date, tags]
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+        description: The main headline for the post. Keep it concise and descriptive.
+
+      - name: description
+        label: Description
+        type: string
+        required: true
+        description: A short summary for SEO and social sharing. Max 160 characters.
+        options:
+          maxlength: 160
+
+      - name: date
+        label: Date
+        type: date
+        required: true
+        description: Publication date.
+        options:
+          format: yyyy-MM-dd
+          time: false
+
+      - name: tags
+        label: Tags
+        type: select
+        default: new-drop
+        description: Categorize the post.
+        options:
+          values: [new-drop, shop-notes, sale, announcement]
+          creatable: true
+
+      - name: layout
+        label: Layout
+        type: string
+        hidden: true
+        default: layouts/post.njk
+
+      - name: image
+        label: Cover Image
+        type: image
+        description: Main image for the post. Used as the hero image and for social sharing.
+        options:
+          path: blog
+
+      - name: body
+        label: Body
+        type: rich-text
+        description: Post content.
+
+  - name: products
+    label: Products
+    type: file
+    path: src/_data/products.json
+    fields:
+      - name: list
+        label: Products
+        type: object
+        list:
+          collapsible:
+            summary: "{fields.title} — {fields.price}"
+        fields:
+          - name: id
+            label: ID (URL-safe, unique)
+            type: string
+            required: true
+            description: "Lowercase, hyphenated, unique — e.g. denim-trucker-jacket. Never change this once the item has sold, or past-cart links break."
+
+          - name: title
+            label: Title
+            type: string
+            required: true
+
+          - name: category
+            label: Category
+            type: select
+            required: true
+            options:
+              values: [Hats, Jackets, Shirts, Sweaters, Accessories, Other]
+              creatable: true
+
+          - name: size
+            label: Size
+            type: string
+            required: true
+            description: "e.g. S, M, L, One size, 7 1/8"
+
+          - name: condition
+            label: Condition
+            type: select
+            required: true
+            options:
+              values: [Excellent, Very Good, Good, Fair]
+
+          - name: price
+            label: Price (USD)
+            type: number
+            required: true
+
+          - name: weight
+            label: Weight (lb)
+            type: number
+            required: true
+            description: Used by the shipping calculator — keep this realistic.
+
+          - name: image
+            label: Photo
+            type: image
+            required: true
+            options:
+              path: products
+
+          - name: description
+            label: Description
+            type: string
+            required: true
+            description: Be specific about flaws — that's the point of honest grading.
+
+          - name: stock
+            label: Stock Status
+            type: select
+            default: In Stock
+            options:
+              values: [In Stock, Sold Out]
+
+          - name: featured
+            label: Featured on Homepage
+            type: boolean
+            default: false
+
+  - name: business
+    label: Shop Info
+    type: file
+    path: src/_data/business.json
+    fields:
+      - name: name
+        label: Shop Name
+        type: string
+        required: true
+
+      - name: tagline
+        label: Tagline
+        type: string
+        required: true
+
+      - name: phone
+        label: Phone
+        type: string
+
+      - name: email
+        label: Email
+        type: string
+
+      - name: address
+        label: Shop Address
+        type: string
+
+      - name: originZip
+        label: Origin Zip (for shipping calculator)
+        type: string
+        required: true
+        description: The shop's own zip code — used to estimate shipping zones. Digits only.
+
+      - name: freeShippingThreshold
+        label: Free Shipping Threshold (USD)
+        type: number
+        required: true
+        description: Orders at or above this subtotal ship free.
+
+      - name: platforms
+        label: Other Platforms
+        type: object
+        description: Links shown in the footer and on the homepage. Leave any field blank to hide that link.
+        fields:
+          - name: instagram
+            label: Instagram URL
+            type: string
+          - name: ebay
+            label: eBay Store URL
+            type: string
+          - name: depop
+            label: Depop URL
+            type: string
+          - name: etsy
+            label: Etsy Shop URL
+            type: string

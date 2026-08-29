@@ -1,0 +1,108 @@
+{
+  "list": [
+    {
+      "id": "camel-felt-fedora",
+      "title": "Camel Felt Fedora",
+      "category": "Hats",
+      "size": "One size",
+      "condition": "Excellent",
+      "price": 45.00,
+      "weight": 0.4,
+      "image": "/img/products/fedora-hat.jpg",
+      "description": "Classic wool felt fedora with a grosgrain band. No stains, tight brim.",
+      "stock": "In Stock",
+      "featured": true
+    },
+    {
+      "id": "chocolate-trilby",
+      "title": "Chocolate Brown Trilby",
+      "category": "Hats",
+      "size": "M (7 1/8)",
+      "condition": "Very Good",
+      "price": 32.00,
+      "weight": 0.3,
+      "image": "/img/products/trilby-hat.jpg",
+      "description": "Narrow-brim trilby, deep brown wool felt. Light shelf wear on the crown.",
+      "stock": "In Stock",
+      "featured": false
+    },
+    {
+      "id": "red-tartan-flannel",
+      "title": "Red Tartan Flannel Shirt",
+      "category": "Shirts",
+      "size": "M",
+      "condition": "Excellent",
+      "price": 38.00,
+      "weight": 0.5,
+      "image": "/img/products/red-tartan-shirt.jpg",
+      "description": "Heavyweight flannel, bright unfaded plaid. No pilling.",
+      "stock": "In Stock",
+      "featured": true
+    },
+    {
+      "id": "ochre-check-flannel",
+      "title": "Ochre Check Flannel Shirt",
+      "category": "Shirts",
+      "size": "L",
+      "condition": "Very Good",
+      "price": 34.00,
+      "weight": 0.5,
+      "image": "/img/products/ochre-check-shirt.jpg",
+      "description": "Soft, well-washed flannel in a muted ochre check. Minor fading, adds character.",
+      "stock": "In Stock",
+      "featured": false
+    },
+    {
+      "id": "denim-trucker-jacket",
+      "title": "Classic Denim Trucker Jacket",
+      "category": "Jackets",
+      "size": "M",
+      "condition": "Good",
+      "price": 72.00,
+      "weight": 1.6,
+      "image": "/img/products/vintage-tag.jpg",
+      "description": "Broken-in denim with honest fading at the seams. All original buttons.",
+      "stock": "In Stock",
+      "featured": true
+    },
+    {
+      "id": "corduroy-barn-jacket",
+      "title": "Corduroy Barn Jacket",
+      "category": "Jackets",
+      "size": "L",
+      "condition": "Very Good",
+      "price": 68.00,
+      "weight": 1.7,
+      "image": "/img/products/vintage-tag.jpg",
+      "description": "Wide-wale corduroy, quilted lining. One small repair on the left cuff, noted in photos.",
+      "stock": "Sold Out",
+      "featured": false
+    },
+    {
+      "id": "fair-isle-sweater",
+      "title": "Fair Isle Wool Sweater",
+      "category": "Sweaters",
+      "size": "M",
+      "condition": "Very Good",
+      "price": 56.00,
+      "weight": 1.1,
+      "image": "/img/products/vintage-tag.jpg",
+      "description": "Hand-knit-style patterned yoke, soft wool blend. No moth damage.",
+      "stock": "In Stock",
+      "featured": true
+    },
+    {
+      "id": "cable-knit-cardigan",
+      "title": "Chunky Cable-Knit Cardigan",
+      "category": "Sweaters",
+      "size": "S/M",
+      "condition": "Good",
+      "price": 52.00,
+      "weight": 1.2,
+      "image": "/img/products/vintage-tag.jpg",
+      "description": "Oversized fit, wooden toggle buttons. One button is a close but not exact match.",
+      "stock": "In Stock",
+      "featured": false
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+---
+layout: layouts/page.njk
+title: Checkout
+permalink: /checkout/
+---
+<div class="wrapper checkout-page">
+  <h1>Checkout</h1>
+
+  <p id="checkout-empty" hidden>Your cart is empty. <a href="/shop/">Browse the shop</a> first.</p>
+
+  <div id="checkout-form">
+    <div class="checkout-demo-notice">
+      <strong>This is a demo checkout.</strong> No payment is collected and no real
+      order is placed — clicking "Place Order" below simulates a confirmation and
+      clears the cart. A production version of this site would replace this step
+      with a real payment processor (Stripe Checkout, Square, etc.); the cart and
+      shipping calculator above it need no changes to work alongside one.
+    </div>
+
+    <h2>Order Summary</h2>
+    <ul id="checkout-items" class="checkout-items"></ul>
+
+    <div class="cart-summary__row">
+      <span>Subtotal</span>
+      <span id="checkout-subtotal">$0.00</span>
+    </div>
+
+    <label for="checkout-zip">Shipping zip code</label>
+    <input type="text" id="checkout-zip" inputmode="numeric" maxlength="5" placeholder="e.g. 90210">
+
+    <div class="cart-summary__row">
+      <span>Shipping</span>
+      <span id="checkout-shipping">—</span>
+    </div>
+    <div class="cart-summary__row cart-summary__row--total">
+      <span>Total</span>
+      <span id="checkout-total">—</span>
+    </div>
+
+    <button type="button" id="place-order-btn" class="button-primary" disabled>Place Order (Demo)</button>
+  </div>
+
+  <div id="order-confirmation" hidden>
+    <h2>Order received — thank you!</h2>
+    <p>
+      This confirms the demo checkout flow worked end to end. In a live version of
+      this site, this is where a real order confirmation and receipt email would go.
+    </p>
+    <a href="/shop/">Continue shopping</a>
+  </div>
+</div>

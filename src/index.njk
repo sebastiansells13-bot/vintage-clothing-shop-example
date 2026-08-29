@@ -1,0 +1,59 @@
+---
+layout: layouts/page.njk
+title: Home
+eleventyNavigation:
+  key: Home
+  order: 1
+---
+<div class="hero hero--photo">
+  <img class="hero__bg" src="/img/hero/shop-hero.jpg" alt="" width="1920" height="900">
+  <div class="hero__content wrapper">
+    <h1>{{ business.name }}</h1>
+    <p>{{ business.tagline }}</p>
+    <a href="/shop/" class="button-primary">Shop Now</a>
+  </div>
+</div>
+
+<section class="wrapper">
+  <div class="section-heading">
+    <h2>Featured Finds</h2>
+    <a href="/shop/">View full shop →</a>
+  </div>
+</section>
+<section class="product-grid wrapper">
+  {% for product in products.list %}
+  {% if product.featured %}
+  <div class="product-card">
+    <div class="product-card__media">
+      <img src="{{ product.image }}" alt="">
+      {% if product.stock == "Sold Out" %}<span class="product-card__stock product-card__stock--sold">Sold Out</span>{% endif %}
+    </div>
+    <div class="product-card__body">
+      <p class="product-card__category">{{ product.category }} · Size {{ product.size }} · {{ product.condition }}</p>
+      <h3>{{ product.title }}</h3>
+      <div class="product-card__footer">
+        <p class="product-card__price">{{ product.price | money }}</p>
+        {% if product.stock == "Sold Out" %}
+        <button type="button" disabled>Sold Out</button>
+        {% else %}
+        <button type="button" data-add-to-cart="{{ product.id }}">Add to Cart</button>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
+</section>
+
+{% if business.platforms %}
+<section class="platform-callout wrapper">
+  <h2>Find Us Elsewhere Too</h2>
+  <p>We list a rotating selection across a few platforms — same honest grading, different storefronts.</p>
+  <div class="platform-callout__links">
+    {% if business.platforms.instagram %}<a href="{{ business.platforms.instagram }}">Instagram</a>{% endif %}
+    {% if business.platforms.ebay %}<a href="{{ business.platforms.ebay }}">eBay</a>{% endif %}
+    {% if business.platforms.depop %}<a href="{{ business.platforms.depop }}">Depop</a>{% endif %}
+    {% if business.platforms.etsy %}<a href="{{ business.platforms.etsy }}">Etsy</a>{% endif %}
+  </div>
+</section>
+{% endif %}

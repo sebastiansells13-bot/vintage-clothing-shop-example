@@ -1,0 +1,15 @@
+{
+  "name": "Marigold & Moth Vintage",
+  "tagline": "One-of-a-kind pre-loved clothing, hand-picked and honestly described.",
+  "phone": "(555) 555-0177",
+  "email": "hello@marigoldandmoth.example",
+  "address": "212 Thistle Ave, Cedar Falls, OH 43215",
+  "originZip": "43215",
+  "freeShippingThreshold": 100,
+  "platforms": {
+    "instagram": "https://www.instagram.com/marigoldandmoth/",
+    "ebay": "https://www.ebay.com/usr/marigoldandmoth",
+    "depop": "https://www.depop.com/marigoldandmoth/",
+    "etsy": "https://www.etsy.com/shop/marigoldandmoth"
+  }
+}

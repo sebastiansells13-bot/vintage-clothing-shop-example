@@ -1,0 +1,45 @@
+---
+layout: layouts/page.njk
+title: Cart
+permalink: /cart/
+---
+<div class="wrapper cart-page">
+  <h1>Your Cart</h1>
+
+  <p id="cart-empty" hidden>Your cart is empty. <a href="/shop/">Browse the shop</a> to find something good.</p>
+  <noscript><p>This cart requires JavaScript to work.</p></noscript>
+
+  <div id="cart-items" class="cart-items" hidden></div>
+
+  <div id="cart-summary" class="cart-summary" hidden>
+    <div class="cart-summary__row">
+      <span>Subtotal</span>
+      <span id="cart-subtotal">$0.00</span>
+    </div>
+    <div class="cart-summary__row">
+      <span>Cart weight</span>
+      <span id="cart-weight">0.0 lb</span>
+    </div>
+
+    <div class="shipping-calculator">
+      <label for="shipping-zip">Estimate shipping — destination zip code</label>
+      <div class="shipping-calculator__row">
+        <input type="text" id="shipping-zip" inputmode="numeric" maxlength="5" placeholder="e.g. 90210">
+        <button type="button" id="calc-shipping-btn">Calculate</button>
+      </div>
+      <p id="shipping-result" class="shipping-calculator__result"></p>
+      <p class="shipping-calculator__disclaimer">
+        Estimated from package weight and a simulated carrier zone — not a live
+        carrier rate lookup. Free shipping automatically applies over
+        {{ business.freeShippingThreshold | money }}.
+      </p>
+    </div>
+
+    <div class="cart-summary__row cart-summary__row--total">
+      <span>Estimated Total</span>
+      <span id="cart-grand-total">—</span>
+    </div>
+
+    <a href="/checkout/" id="checkout-link" class="button-primary">Proceed to Checkout</a>
+  </div>
+</div>

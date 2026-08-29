@@ -1,0 +1,16 @@
+<header class="site-header">
+  <div class="wrapper">
+    <a class="site-header__brand" href="/">{{ business.name or metadata.title }}</a>
+    <nav>
+      <ul>
+        {% for item in navigation %}
+        <li>
+          <a href="{{ item.url }}"{% if page.url == item.url %} class="is-active" aria-current="page"{% endif %}>
+            {{ item.text }}{% if item.text == "Cart" %} <span id="cart-count" class="cart-count" hidden></span>{% endif %}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

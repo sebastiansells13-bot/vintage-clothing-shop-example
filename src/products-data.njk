@@ -1,0 +1,18 @@
+---
+permalink: /js/products-data.js
+eleventyExcludeFromCollections: true
+---
+// Derived from this very script tag's own (already-correctly-prefixed) src,
+// so cart.js can build asset URLs at runtime that work whether the site is
+// deployed at a domain root ("/") or a GitHub Pages project path
+// ("/comics-toys-shop-example/") — see cart.js's use of window.SITE_BASE.
+window.SITE_BASE = (function () {
+  var s = document.currentScript;
+  return s ? s.src.replace(/\/js\/products-data\.js.*$/, "") : "";
+})();
+
+window.PRODUCTS = {{ products.list | json | safe }};
+window.SHOP_CONFIG = {
+  originZip: "{{ business.originZip }}",
+  freeShippingThreshold: {{ business.freeShippingThreshold }}
+};

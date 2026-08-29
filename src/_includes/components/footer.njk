@@ -1,0 +1,18 @@
+<footer class="site-footer">
+  <div class="wrapper">
+    <span>&copy; {% year %} {{ business.name or metadata.title }}</span>
+    {% if business.platforms %}
+    <nav class="platform-links" aria-label="Also find us on">
+      <span class="platform-links__label">Also find us on:</span>
+      {% if business.platforms.instagram %}<a href="{{ business.platforms.instagram }}">Instagram</a>{% endif %}
+      {% if business.platforms.ebay %}<a href="{{ business.platforms.ebay }}">eBay</a>{% endif %}
+      {% if business.platforms.depop %}<a href="{{ business.platforms.depop }}">Depop</a>{% endif %}
+      {% if business.platforms.etsy %}<a href="{{ business.platforms.etsy }}">Etsy</a>{% endif %}
+    </nav>
+    {% endif %}
+    <span>
+      {% if business.email %}<a href="mailto:{{ business.email }}">{{ business.email }}</a>{% endif %}
+      {% if business.phone %} · {{ business.phone }}{% endif %}
+    </span>
+  </div>
+</footer>

@@ -1,0 +1,31 @@
+---
+layout: layouts/page.njk
+title: Shop
+permalink: /shop/
+---
+<div class="wrapper">
+  <h1>Shop</h1>
+</div>
+<section class="product-grid wrapper">
+  {% for product in products.list %}
+  <div class="product-card">
+    <div class="product-card__media">
+      <img src="{{ product.image }}" alt="">
+      {% if product.stock == "Sold Out" %}<span class="product-card__stock product-card__stock--sold">Sold Out</span>{% endif %}
+    </div>
+    <div class="product-card__body">
+      <p class="product-card__category">{{ product.category }} · Size {{ product.size }} · {{ product.condition }}</p>
+      <h3>{{ product.title }}</h3>
+      <p class="product-card__description">{{ product.description }}</p>
+      <div class="product-card__footer">
+        <p class="product-card__price">{{ product.price | money }}</p>
+        {% if product.stock == "Sold Out" %}
+        <button type="button" disabled>Sold Out</button>
+        {% else %}
+        <button type="button" data-add-to-cart="{{ product.id }}">Add to Cart</button>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</section>
