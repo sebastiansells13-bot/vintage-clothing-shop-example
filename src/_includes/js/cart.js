@@ -13,7 +13,10 @@
 (function () {
   "use strict";
 
-  var CART_KEY = "rr_cart";
+  // Unique per shop: every example site shares the sebastiansells13-bot.github.io
+  // origin (and so one localStorage), so a shared key would let one shop's
+  // cart read, overwrite, or clear another's.
+  var CART_KEY = "mm_cart";
 
   function getCart() {
     try {
@@ -145,6 +148,17 @@
     return "$" + n.toFixed(2);
   }
 
+  // Product fields come from CMS-edited products.json, so escape them before
+  // building cart rows with innerHTML.
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
   // Root-relative product image paths (e.g. "/img/products/comics.jpg") are
   // correct as written in HTML that Eleventy renders at build time — its
   // html-base-plugin rewrites them for the deployed pathPrefix automatically.
@@ -204,12 +218,12 @@
       var row = document.createElement("div");
       row.className = "cart-row";
       row.innerHTML =
-        '<img src="' + assetUrl(item.product.image) + '" alt="" class="cart-row__image">' +
+        '<img src="' + escapeHtml(assetUrl(item.product.image)) + '" alt="" class="cart-row__image">' +
         '<div class="cart-row__body">' +
-        "<h3>" + item.product.title + "</h3>" +
+        "<h3>" + escapeHtml(item.product.title) + "</h3>" +
         '<p class="cart-row__meta">' +
-        (item.product.size ? "Size " + item.product.size + " · " : "") +
-        item.product.condition + " · " + formatMoney(item.product.price) + " each</p>" +
+        (item.product.size ? "Size " + escapeHtml(item.product.size) + " · " : "") +
+        escapeHtml(item.product.condition) + " · " + formatMoney(item.product.price) + " each</p>" +
         "</div>" +
         '<div class="cart-row__qty">' +
         '<button type="button" data-qty-decrease>−</button>' +
